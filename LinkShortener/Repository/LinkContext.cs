@@ -13,9 +13,6 @@ public class LinkContext : DbContext
     
 //==============================================================//
 
-    public LinkContext() {}
-
-    
     public LinkContext(DbContextOptions<LinkContext> options) : base(options)
     {
         if (_isMigrated) return;
@@ -23,10 +20,4 @@ public class LinkContext : DbContext
         _isMigrated = true;
     }
     
-//==============================================================//
-    
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql("Host=localhost:5432;Database=Links;Username=postgres;Password=1;");
-    }
 }
